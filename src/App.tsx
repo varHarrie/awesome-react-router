@@ -1,22 +1,18 @@
-import * as React from 'react';
-import './App.css';
-
-const logo = require('./logo.svg');
+import * as React from 'react'
+import './App.css'
+import Router from './libs/awesome-react-router/Router'
+import routes from './routes'
 
 class App extends React.Component<{}, null> {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div className='App'>
+        <Router routers={routes}>
+          test
+        </Router>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
