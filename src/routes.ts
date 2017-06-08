@@ -3,6 +3,12 @@ import View from './views/View'
 
 export default createRoutes([
   {
+    name: 'home',
+    path: '/',
+    exact: true,
+    component: View,
+  },
+  {
     name: 'a',
     path: 'a',
     component: View,

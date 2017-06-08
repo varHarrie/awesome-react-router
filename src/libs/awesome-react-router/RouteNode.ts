@@ -10,7 +10,7 @@ export interface IRouteNode {
   meta?: any
 }
 
-export default class RouteNode implements IRouteNode{
+export default class RouteNode implements IRouteNode {
   name: string
   path: string
   exact: boolean
@@ -23,7 +23,8 @@ export default class RouteNode implements IRouteNode{
     const {name, path, exact, strict, component, routes, meta} = options
     parent = parent === '/' ? '' : parent
     this.name = name
-    this.path = parent + path.startsWith('/') ? path : '/' + path
+    this.path = parent + (path.startsWith('/') ? path : '/' + path)
+    console.log(this.path)
     this.exact = !!exact
     this.strict = !!strict
     this.component = component
