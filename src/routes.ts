@@ -1,50 +1,35 @@
-import createRoutes from './libs/awesome-react-router/createRoutes'
 import View from './views/View'
 
-export default createRoutes([
+export default [
   {
-    name: 'home',
-    path: '/',
-    exact: true,
-    component: View,
-  },
-  {
-    name: 'a',
-    path: 'a',
+    name: 'products',
+    path: '/products',
     component: View,
     routes: [
       {
-        name: 'aa',
-        path: 'aa',
-        component: View
-      },
-      {
-        name: 'ab',
-        path: 'ab',
-        component: View,
-        routes: [
-          {
-            name: 'aba',
-            path: 'aba',
-            component: View
-          }
-        ]
-      },
-      {
-        name: 'ac',
-        path: 'ac',
+        name: 'product',
+        path: '/:productId',
         component: View
       }
     ]
   },
   {
-    name: 'b',
-    path: 'b',
-    component: View
-  },
-  {
-    name: 'c',
-    path: 'c',
-    component: View
+    name: 'organization',
+    path: '/organization',
+    component: View,
+    routes: [
+      {
+        name: 'menbers',
+        path: '/menbers',
+        component: View,
+        routes: [
+          {
+            name: 'member',
+            path: ':memberId',
+            component: View
+          }
+        ]
+      }
+    ]
   }
-])
+]

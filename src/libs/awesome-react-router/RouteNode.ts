@@ -1,5 +1,9 @@
 import * as React from 'react'
 
+export interface IRouteProps {
+  $route: RouteNode
+}
+
 export interface IRouteNode {
   name: string,
   path: string,
@@ -24,7 +28,6 @@ export default class RouteNode implements IRouteNode {
     parent = parent === '/' ? '' : parent
     this.name = name
     this.path = parent + (path.startsWith('/') ? path : '/' + path)
-    console.log(this.path)
     this.exact = !!exact
     this.strict = !!strict
     this.component = component

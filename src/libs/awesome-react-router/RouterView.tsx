@@ -1,19 +1,8 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
+import Route from './Route'
 import RouteNode from './RouteNode'
-import { Route as OriginalRoute, Switch } from 'react-router'
-
-class Route extends OriginalRoute {
-  static childContextTypes = {
-    $routes: PropTypes.any
-  }
-
-  getChildContextTypes = () => {
-    return {
-      $routes: (this.props as any).route.routes
-    }
-  }
-}
+import { Switch } from 'react-router'
 
 interface IRouterViewProps {}
 
@@ -35,11 +24,8 @@ export default class RouterView extends React.Component<IRouterViewProps, IRoute
     return (
       <Switch>
         {$routes.map((route, i) => {
-          console.log(route)
           return (
-            <Route key={i} path={route.path} exact={route.exact} strict={route.strict} render={(props) => (
-              <route.component {...props} route={route}/>
-            )}/>
+            <Route key={i} path={route.path} exact={route.exact} strict={route.strict} route={route}/>
           )
         })}
       </Switch>
